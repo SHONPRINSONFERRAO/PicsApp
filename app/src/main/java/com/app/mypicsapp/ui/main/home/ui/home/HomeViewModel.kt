@@ -8,10 +8,14 @@ import androidx.lifecycle.viewModelScope
 import com.app.mypicsapp.data.model.ListOfPhotos
 import com.app.mypicsapp.data.model.PhotoDataModel
 import com.app.mypicsapp.data.repository.Repository
+import com.app.mypicsapp.util.NetworkHelper
 import com.app.mypicsapp.util.Resource
 import kotlinx.coroutines.launch
 
-class HomeViewModel @ViewModelInject constructor(private val repository: Repository) : ViewModel() {
+class HomeViewModel @ViewModelInject constructor(
+    private val repository: Repository,
+    private val networkInfo: NetworkHelper
+) : ViewModel() {
 
     private val photos = MutableLiveData<Resource<ArrayList<ListOfPhotos>>>()
     private val photoList = ArrayList<ListOfPhotos>()
@@ -32,9 +36,13 @@ class HomeViewModel @ViewModelInject constructor(private val repository: Reposit
     fun getPhotos(page: Int) = viewModelScope.launch {
         photos.postValue(Resource.loading(data = null))
         try {
-            val photosFromApi = repository.fetchPhotos(page)
-            addPhotos(photosFromApi)
-            photos.postValue(Resource.success(photoList))
+            if (networkInfo.isNetworkConnected()) {
+                val photosFromApi = repository.fetchPhotos(page)
+                addPhotos(photosFromApi)
+                photos.postValue(Resource.success(photoList))
+            } else {
+                photos.postValue(Resource.error("No Internet Connection!", null))
+            }
         } catch (exception: Exception) {
             photos.postValue(Resource.error(exception.message ?: "Error Occurred!", null))
         }

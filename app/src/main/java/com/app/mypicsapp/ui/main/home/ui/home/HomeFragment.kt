@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -48,6 +49,7 @@ class HomeFragment : Fragment(), PhotoAdapter.OnItemClickListener {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
+                        binding.welcomeImg.isVisible = false
                         isLoading = false
                         binding.loaderBar.visibility = View.GONE
                         resource.data?.let { photos -> populateData(photos) }
@@ -55,7 +57,7 @@ class HomeFragment : Fragment(), PhotoAdapter.OnItemClickListener {
                     Status.ERROR -> {
                         isLoading = false
                         binding.loaderBar.visibility = View.GONE
-                        Toast.makeText(requireContext(), "Page Load Failed!", Toast.LENGTH_SHORT)
+                        Toast.makeText(requireContext(), resource.message, Toast.LENGTH_SHORT)
                             .show()
                     }
                     Status.LOADING -> {
