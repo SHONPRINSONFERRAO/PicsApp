@@ -1,6 +1,5 @@
 package com.app.mypicsapp.di
 
-import com.app.mypicsapp.BuildConfig
 import com.app.mypicsapp.data.api.ApiHelper
 import com.app.mypicsapp.data.api.ApiHelperImpl
 import com.app.mypicsapp.data.api.ApiService
@@ -11,7 +10,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.*
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit

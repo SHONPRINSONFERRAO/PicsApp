@@ -10,7 +10,8 @@ import com.app.mypicsapp.data.repository.Repository
 import com.app.mypicsapp.util.Resource
 import kotlinx.coroutines.launch
 
-class RegisterViewModel @ViewModelInject constructor(private val repository: Repository) : ViewModel() {
+class RegisterViewModel @ViewModelInject constructor(private val repository: Repository) :
+    ViewModel() {
     private val loginResponse = MutableLiveData<Resource<LoginResponse>>()
 
     fun registerUser(email: String, password: String, age: Int) = viewModelScope.launch {

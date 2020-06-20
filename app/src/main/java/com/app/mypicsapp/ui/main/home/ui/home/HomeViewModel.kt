@@ -17,7 +17,7 @@ class HomeViewModel @ViewModelInject constructor(private val repository: Reposit
     private val photoList = ArrayList<ListOfPhotos>()
     private var _page = MutableLiveData<Int>()
 
-    val page : LiveData<Int>
+    val page: LiveData<Int>
         get() = _page
 
     init {
@@ -25,8 +25,7 @@ class HomeViewModel @ViewModelInject constructor(private val repository: Reposit
         getPhotos(1)
     }
 
-    fun setPage()
-    {
+    fun setPage() {
         _page.value = _page.value?.plus(1)
     }
 
@@ -37,7 +36,7 @@ class HomeViewModel @ViewModelInject constructor(private val repository: Reposit
             addPhotos(photosFromApi)
             photos.postValue(Resource.success(photoList))
         } catch (exception: Exception) {
-                photos.postValue(Resource.error(exception.message ?: "Error Occurred!", null))
+            photos.postValue(Resource.error(exception.message ?: "Error Occurred!", null))
         }
     }
 

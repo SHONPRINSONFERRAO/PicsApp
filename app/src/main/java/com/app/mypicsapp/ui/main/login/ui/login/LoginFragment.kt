@@ -58,7 +58,10 @@ class LoginFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            viewModel.loginUser(binding.emailText.text.toString(), binding.passwordText.text.toString())
+            viewModel.loginUser(
+                binding.emailText.text.toString(),
+                binding.passwordText.text.toString()
+            )
 
         }
 

@@ -55,7 +55,8 @@ class HomeFragment : Fragment(), PhotoAdapter.OnItemClickListener {
                     Status.ERROR -> {
                         isLoading = false
                         binding.loaderBar.visibility = View.GONE
-                        Toast.makeText(requireContext(), "Page Load Failed!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Page Load Failed!", Toast.LENGTH_SHORT)
+                            .show()
                     }
                     Status.LOADING -> {
 
@@ -66,11 +67,11 @@ class HomeFragment : Fragment(), PhotoAdapter.OnItemClickListener {
     }
 
     private fun populateData(photos: ArrayList<ListOfPhotos>) {
-            adapter.apply {
-                clearPhotos()
-                addPhotos(photos)
-                notifyDataSetChanged()
-            }
+        adapter.apply {
+            clearPhotos()
+            addPhotos(photos)
+            notifyDataSetChanged()
+        }
     }
 
     private fun setUpListAdapter() {
@@ -80,7 +81,8 @@ class HomeFragment : Fragment(), PhotoAdapter.OnItemClickListener {
         binding.photoList.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.photoList.adapter = adapter
         binding.photoList.isNestedScrollingEnabled = false
-        adapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+        adapter.stateRestorationPolicy =
+            RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
 
         binding.photoList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -97,7 +99,7 @@ class HomeFragment : Fragment(), PhotoAdapter.OnItemClickListener {
                     viewModel.setPage()
                     binding.photoList.scrollToPosition(totalItemCount - 1)
                     binding.loaderBar.visibility = View.VISIBLE
-                    viewModel.getPhotos(viewModel.page.value?:1)
+                    viewModel.getPhotos(viewModel.page.value ?: 1)
                 }
             }
         })

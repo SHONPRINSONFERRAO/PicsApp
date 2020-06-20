@@ -74,7 +74,8 @@ class RegisterFragment : Fragment() {
                         requireActivity().finish()
                     }
                     Status.ERROR -> {
-                        Toast.makeText(requireContext(), "Registration Failed!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Registration Failed!", Toast.LENGTH_SHORT)
+                            .show()
                     }
                     Status.LOADING -> {
 

@@ -27,7 +27,7 @@ class PhotoAdapter(
                     .into(photoView)
             }
 
-            itemView.authorName.text = "Credits: "+photo.user
+            itemView.authorName.text = "Credits: " + photo.user
 
             itemView.setOnClickListener {
                 clickListener.onItemClick(photo)

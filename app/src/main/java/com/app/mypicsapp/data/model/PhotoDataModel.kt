@@ -27,4 +27,4 @@ data class ListOfPhotos(
     val type: String
 
 
-): Parcelable
+) : Parcelable
