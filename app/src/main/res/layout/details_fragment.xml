@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/photoView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/imgGuideline"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_height="0sp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sectionAttributes"
+                android:padding="8sp"
+                app:layout_constraintBottom_toBottomOf="@+id/photoView"
+                android:layout_width="match_parent"
+                android:background="#403e3e3e"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView
+                android:textColor="@android:color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="2sp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/imageDimens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:textColor="@android:color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="2sp"
+                app:layout_constraintTop_toBottomOf="@+id/imageDimens"
+                android:id="@+id/imageType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:textColor="@android:color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="2sp"
+                app:layout_constraintTop_toBottomOf="@+id/imageType"
+                android:id="@+id/imageTags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="25sp"
+                app:layout_constraintTop_toBottomOf="@+id/sectionAttributes"
+                tools:layout_editor_absoluteX="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:minHeight="150sp"
+                    app:cardBackgroundColor="@color/cardColor"
+                    android:layout_marginRight="20sp"
+                    android:id="@+id/userView"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:padding="6sp"
+                    app:cardCornerRadius="8sp"
+                    app:cardElevation="1sp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toStartOf="@+id/viewsView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp">
+
+                        <ImageView
+                            android:id="@+id/userImg"
+                            android:layout_width="42sp"
+                            android:layout_height="42sp"
+                            android:src="@drawable/ic_user"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_marginTop="10sp"
+                            android:id="@+id/userHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Uploaded by"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/userImg" />
+
+                        <TextView
+                            android:id="@+id/userTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/userHeading" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:minHeight="150sp"
+                    app:cardBackgroundColor="@color/cardColor"
+                    android:layout_marginRight="10sp"
+                    android:id="@+id/viewsView"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:padding="6sp"
+                    app:cardCornerRadius="8sp"
+                    app:cardElevation="1sp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/userView"
+                    app:layout_constraintTop_toTopOf="@id/userView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp">
+
+                        <ImageView
+                            android:id="@+id/viewsImg"
+                            android:layout_width="42sp"
+                            android:layout_height="42sp"
+                            android:src="@drawable/ic_views"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/viewHeading"
+                            android:layout_marginTop="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Views"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/viewsImg" />
+
+                        <TextView
+                            android:id="@+id/viewsTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/viewHeading" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="20sp"
+                    android:minHeight="150sp"
+                    app:cardBackgroundColor="@color/cardColor"
+                    android:layout_marginRight="20sp"
+                    android:id="@+id/likesView"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:padding="6sp"
+                    app:cardCornerRadius="8sp"
+                    app:cardElevation="1sp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toStartOf="@+id/commentsView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/userView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp">
+
+                        <ImageView
+                            android:id="@+id/likesImg"
+                            android:layout_width="42sp"
+                            android:layout_height="42sp"
+                            android:src="@drawable/ic_likes"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_marginTop="10sp"
+                            android:id="@+id/likesHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Likes"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/likesImg" />
+
+                        <TextView
+                            android:id="@+id/likesTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/likesHeading" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:minHeight="150sp"
+                    app:cardBackgroundColor="@color/cardColor"
+                    android:layout_marginRight="10sp"
+                    android:id="@+id/commentsView"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:padding="6sp"
+                    app:cardCornerRadius="8sp"
+                    app:cardElevation="1sp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/likesView"
+                    app:layout_constraintTop_toTopOf="@id/likesView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp">
+
+                        <ImageView
+                            android:id="@+id/commentsImg"
+                            android:layout_width="42sp"
+                            android:layout_height="42sp"
+                            android:src="@drawable/ic_comments"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/commentsHeading"
+                            android:layout_marginTop="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comments"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/commentsImg" />
+
+                        <TextView
+                            android:id="@+id/commentsTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/commentsHeading" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="20sp"
+                    android:minHeight="150sp"
+                    app:cardBackgroundColor="@color/cardColor"
+                    android:layout_marginRight="20sp"
+                    android:id="@+id/favView"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:padding="6sp"
+                    app:cardCornerRadius="8sp"
+                    app:cardElevation="1sp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toStartOf="@+id/downloadsView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/likesView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp">
+
+                        <ImageView
+                            android:id="@+id/favImg"
+                            android:layout_width="42sp"
+                            android:layout_height="42sp"
+                            android:src="@drawable/ic_favorites"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_marginTop="10sp"
+                            android:id="@+id/favHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Favorites"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/favImg" />
+
+                        <TextView
+                            android:id="@+id/favTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/favHeading" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:minHeight="150sp"
+                    app:cardBackgroundColor="@color/cardColor"
+                    android:layout_marginRight="10sp"
+                    android:id="@+id/downloadsView"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:padding="6sp"
+                    app:cardCornerRadius="8sp"
+                    app:cardElevation="1sp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/favView"
+                    app:layout_constraintTop_toTopOf="@id/favView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10sp">
+
+                        <ImageView
+                            android:id="@+id/downloadsImg"
+                            android:layout_width="42sp"
+                            android:layout_height="42sp"
+                            android:src="@drawable/ic_downloads"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/downloadsHeading"
+                            android:layout_marginTop="10sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Downloads"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/downloadsImg" />
+
+                        <TextView
+                            android:id="@+id/downloadsTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/downloadsHeading" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/imgGuideline"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</layout>
